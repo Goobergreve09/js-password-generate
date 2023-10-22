@@ -93,8 +93,22 @@ generateBtn.addEventListener("click", function() {
 });
 
 //In this code, we added a confirm prompt to ask the user if they want to include capital letters in their password after specifying the character length. The user's choice (either "OK" or "Cancel") is stored in the includeUppercase variable, and you can pass this variable to your generatePassword function, which can use it to determine whether to include capital letters in the generated password.
+// Select the "Copy" button element
+var copyButton = document.querySelector("#copy-password");
 
+// Add an event listener to the "Copy" button
+copyButton.addEventListener("click", function () {
 
+ if (password.value.length <= 0) {
+  alert("ERROR: There is no password to copy. Click OK and Try Again. ");
+ } else { 
+  var passwordText = document.getElementById("password");
+  passwordText.select();
+  document.execCommand("copy");
+  alert("Password copied to clipboard: " + passwordText.value);
+
+ }
+});
 
 
 
